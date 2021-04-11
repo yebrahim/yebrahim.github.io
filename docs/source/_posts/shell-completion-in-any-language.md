@@ -1,6 +1,6 @@
 ---
-title: shell auto completion in any language
-date: 2021-04-11 00:34:07
+title: shell completion in any language
+date: 2021-04-10 21:30:37
 tags:
 ---
 
@@ -24,7 +24,7 @@ Let's get down to business. Two steps we need here:
 auto-complete and print suggestions. Let's call this "the completer."
 
 2. Wiring the shell to use the completer whenever a certain program is
-invoked for auto-complete.
+invoked for auto-complete. We'll call this "the shell bridge."
 
 Let's do this for a cli called `silly`.
 
@@ -56,7 +56,7 @@ two lines printed to console.
 That's it. We're basically saying return two suggestions: `hello` and `world`
 whenever you're called, doesn't matter the input.
 
-## Two: Wiring your shell to use the completer
+## Two: The shell bridge
 
 Somewhere in your shell config file (`.bashrc`, `.bash_profile`, `.zshrc`...
 etc), you'll want to tell it to use your completer whenever it needs to
@@ -105,3 +105,10 @@ to auto-complete your command. Some shell setups like zsh plugins can try to
 auto-complete after every character you type (after the initial program name,
 `silly`), so make sure the script is quick enough to run that you won't feel
 it running as you're typing your command.
+
+## Credits
+
+I saw this really cool Node.js package, tabtab, that gave me the idea,
+you should check it out: https://github.com/mklabs/tabtab.
+
+Part two here: {% post_link shell-completion-in-any-language-part-2 %}
