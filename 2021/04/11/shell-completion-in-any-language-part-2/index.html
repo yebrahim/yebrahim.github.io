@@ -71,7 +71,7 @@
       <ul>
         
         
-        <li><a class="icon" aria-label="Next post " href="/2021/04/11/shell-completion-in-any-language/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Next post " href="/2021/04/10/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -138,7 +138,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Part one here: <a href="/2021/04/11/shell-completion-in-any-language/" title="shell completion in any language">shell completion in any language</a></p>
+    <p>Part one here: <a href="/2021/04/10/shell-completion-in-any-language/" title="shell completion in any language">shell completion in any language</a></p>
 <p>Now that we have the skeleton, let’s flesh it out and add the completion<br>logic. The basic idea is we pass some environment variables from the shell<br>bridge script, read those in the completer and use them to suggest<br>completions.</p>
 <p>In the shell bridge, we have this part for zsh for example:</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reply=($(COMP_CWORD=<span class="string">&quot;<span class="subst">$((CURRENT-1)</span>)&quot;</span> COMP_LINE=<span class="string">&quot;<span class="variable">$BUFFER</span>&quot;</span> _silly_completer.py -- <span class="string">&quot;<span class="variable">$&#123;words[@]&#125;</span>&quot;</span>))</span><br></pre></td></tr></table></figure>
