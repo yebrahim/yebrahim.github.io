@@ -109,6 +109,10 @@ deploy:
   repo: 'git@github.com:yebrahim/yebrahim.github.io.git'
   branch: 'gh-pages'
 
-discus:
+theme_config:
   enabled: true
-  shortname: yelsayed.disqus.com
+  shortname: yelsayed
+
+disqus_enabled: true
+disqus_shortname: yelsayed
+
