@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="So, you have this cli tool whose options you could never remember,or you’re a system admin with too many commands that don’t haveshell completion. You think that, you know, you’re a programmer, how ha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell completion in any language">
+<meta property="og:url" content="https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/index.html">
+<meta property="og:site_name" content="the ypad">
+<meta property="og:description" content="So, you have this cli tool whose options you could never remember,or you’re a system admin with too many commands that don’t haveshell completion. You think that, you know, you’re a programmer, how ha">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-11T05:53:12.000Z">
+<meta property="article:modified_time" content="2021-04-11T07:01:19.749Z">
+<meta property="article:author" content="Yasser Elsayed">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>shell completion in any language</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/yebrahim">GitHub</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/2021/04/10/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&text=shell completion in any language"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&is_video=false&description=shell completion in any language"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=shell completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&name=shell completion in any language&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&t=shell completion in any language"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Auto-complete-executable-completer"><span class="toc-number">1.</span> <span class="toc-text">One: Auto-complete executable (completer)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Wiring-your-shell-to-use-the-completer"><span class="toc-number">2.</span> <span class="toc-text">Two: Wiring your shell to use the completer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        shell completion in any language
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Yasser Elsayed</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-04-11T05:53:12.000Z" itemprop="datePublished">2021-04-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>So, you have this cli tool whose options you could never remember,<br>or you’re a system admin with too many commands that don’t have<br>shell completion.</p>
+<p>You think that, you know, you’re a programmer, how hard could it<br>be to write bash/zsh/fish.. completion for your most used tool.</p>
+<p>A few hours later, you still can’t believe how hard this is. There<br>must be an easier way. Being fluent in several programming languages<br>and having passing knowledge about a dozen others, why can’t you<br>just write your completion function in Python, Node.js, or even Java?</p>
+<p>Let’s get down to business. Two steps we need here:</p>
+<ol>
+<li><p>Create an executable that will read the current line the shell is trying<br>to auto-complete and print suggestions. Let’s call this “the completer.”</p>
+</li>
+<li><p>Point the shell to use this executable whenever a certain program is<br>invoked for auto-complete.</p>
+</li>
+</ol>
+<p>Let’s do this for a cli called <code>silly</code>.</p>
+<h2 id="One-Auto-complete-executable-completer"><a href="#One-Auto-complete-executable-completer" class="headerlink" title="One: Auto-complete executable (completer)"></a>One: Auto-complete executable (completer)</h2><p>Python is readily available on most programming environments, so I’ll<br>use it here, but the same principle applies to any executable your<br>shell knows where to find it and how to call it. The only requirement<br>is you know how to parse environment variables in your language, and<br>how to print to stdout.</p>
+<p>Create an executable Python script somewhere on PATH and make it executable:</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch /usr/<span class="built_in">local</span>/bin/_silly_completer.py</span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/_silly_completer.py</span><br></pre></td></tr></table></figure>
+
+<p>Open the file and add these lines:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Test you’ve done the right thing by reloading your shell (e.g. <code>exec zsh</code>)<br>and running <code>_silly_completer.py</code> from any directory, make sure you see<br>the two lines printed to console.</p>
+<p>That’s it. We’re basically saying return two suggestions: <code>hello</code> and<br><code>world</code> whenever you’re called, doesn’t matter the input.</p>
+<h2 id="Two-Wiring-your-shell-to-use-the-completer"><a href="#Two-Wiring-your-shell-to-use-the-completer" class="headerlink" title="Two: Wiring your shell to use the completer"></a>Two: Wiring your shell to use the completer</h2><p>Somewhere in your shell config file (<code>.bashrc</code>, <code>.bash_profile</code>, <code>.zshrc</code>… etc),<br>you’ll want to tell it to use your completer whenever it needs to<br>auto-complete for a certain program.</p>
+<p>This is a little different per shell, but the main idea is the same.<br>I’ll include a sample for bash and zsh here since these are pretty<br>popular, after Apple decided zsh is the default shell on MacOS.</p>
+<h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">_silly</span></span> () &#123;</span><br><span class="line">  <span class="built_in">local</span> words</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">type</span> _get_comp_words_by_ref &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    _get_comp_words_by_ref -n = -n @ -n : -w words</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    words=(<span class="string">&quot;<span class="variable">$&#123;COMP_WORDS[@]&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  COMPREPLY=($(COMP_LINE=<span class="string">&quot;<span class="variable">$COMP_LINE</span>&quot;</span> _silly_completer.py -- <span class="string">&quot;<span class="variable">$&#123;words[@]&#125;</span>&quot;</span> 2&gt;/dev/null))</span><br><span class="line">&#125;</span><br><span class="line">complete -o default -F _silly silly</span><br></pre></td></tr></table></figure>
+
+<h3 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">_silly</span></span> () &#123;</span><br><span class="line">  reply=($(COMP_CWORD=<span class="string">&quot;<span class="subst">$((CURRENT-1)</span>)&quot;</span> COMP_LINE=<span class="string">&quot;<span class="variable">$BUFFER</span>&quot;</span> _silly_completer.py -- <span class="string">&quot;<span class="variable">$&#123;words[@]&#125;</span>&quot;</span>))</span><br><span class="line">  _describe <span class="string">&#x27;values&#x27;</span> reply</span><br><span class="line">&#125;</span><br><span class="line">compdef _silly silly</span><br></pre></td></tr></table></figure>
+
+<p>Reload your shell again, type <code>silly </code> (add a space after) then press Tab twice,<br>you should see <code>hello</code> and <code>world</code> suggested. If you type <code>silly he</code> and press<br>Tab, the shell should auto-complete it to <code>silly hello</code>.</p>
+<p>The reason we had to press a space before we got auto-completion is because <code>silly</code><br>doesn’t (probably) actually exist on your system.</p>
+<p><em>Happy completions!</em></p>
+<h2 id="Caveats"><a href="#Caveats" class="headerlink" title="Caveats"></a>Caveats</h2><p>Note that the shell will run your completer executable every time it’s asked<br>to auto-complete your command. Some shell setups like zsh plugins can try to<br>auto-complete after every character you type (after the initial program name,<br><code>silly</code>), so make sure the script is quick enough to run that you won’t feel<br>it running as you’re typing your command.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/yebrahim">GitHub</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-Auto-complete-executable-completer"><span class="toc-number">1.</span> <span class="toc-text">One: Auto-complete executable (completer)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Wiring-your-shell-to-use-the-completer"><span class="toc-number">2.</span> <span class="toc-text">Two: Wiring your shell to use the completer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&text=shell completion in any language"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&is_video=false&description=shell completion in any language"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=shell completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&name=shell completion in any language&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/10/shell-completion-in-any-language/&t=shell completion in any language"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    Yasser Elsayed
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/yebrahim">GitHub</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
