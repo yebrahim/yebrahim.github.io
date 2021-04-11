@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="So, you have this cli tool whose options you could never remember, or you’rea system admin with too many commands that don’t have shell completion. You think that, you know, you’re a programmer, how h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell auto completion in any language">
-<meta property="og:url" content="https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/index.html">
+<meta property="og:title" content="shell completion in any language">
+<meta property="og:url" content="https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/index.html">
 <meta property="og:site_name" content="the ypad">
 <meta property="og:description" content="So, you have this cli tool whose options you could never remember, or you’rea system admin with too many commands that don’t have shell completion. You think that, you know, you’re a programmer, how h">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-11T07:34:07.000Z">
-<meta property="article:modified_time" content="2021-04-11T07:34:25.504Z">
+<meta property="article:modified_time" content="2021-04-11T18:10:39.643Z">
 <meta property="article:author" content="Yasser Elsayed">
 <meta name="twitter:card" content="summary">
     
@@ -36,7 +36,7 @@
       
     
     <!-- title -->
-    <title>shell auto completion in any language</title>
+    <title>shell completion in any language</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -70,6 +70,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" aria-label="Previous post " href="/2021/04/11/shell-completion-in-any-language-part-2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" aria-label="Next post " href="/2021/04/10/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -84,22 +86,22 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&text=shell auto completion in any language"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&is_video=false&description=shell auto completion in any language"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=shell auto completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&name=shell auto completion in any language&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&t=shell auto completion in any language"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&text=shell completion in any language"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&is_video=false&description=shell completion in any language"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=shell completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&name=shell completion in any language&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&t=shell completion in any language"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-The-completer"><span class="toc-number">1.</span> <span class="toc-text">One: The completer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Wiring-your-shell-to-use-the-completer"><span class="toc-number">2.</span> <span class="toc-text">Two: Wiring your shell to use the completer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-The-completer"><span class="toc-number">1.</span> <span class="toc-text">One: The completer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-The-shell-bridge"><span class="toc-number">2.</span> <span class="toc-text">Two: The shell bridge</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Credits"><span class="toc-number">4.</span> <span class="toc-text">Credits</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -111,7 +113,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        shell auto completion in any language
+        shell completion in any language
     </h1>
 
 
@@ -146,7 +148,7 @@
 <ol>
 <li><p>An executable that will read the current line the shell is trying to<br>auto-complete and print suggestions. Let’s call this “the completer.”</p>
 </li>
-<li><p>Wiring the shell to use the completer whenever a certain program is<br>invoked for auto-complete.</p>
+<li><p>Wiring the shell to use the completer whenever a certain program is<br>invoked for auto-complete. We’ll call this “the shell bridge.”</p>
 </li>
 </ol>
 <p>Let’s do this for a cli called <code>silly</code>.</p>
@@ -159,7 +161,7 @@
 
 <p>Test you’ve done the right thing by reloading your shell (e.g. <code>exec zsh</code>)<br>and running <code>_silly_completer.py</code> from any directory, make sure you see the<br>two lines printed to console.</p>
 <p>That’s it. We’re basically saying return two suggestions: <code>hello</code> and <code>world</code><br>whenever you’re called, doesn’t matter the input.</p>
-<h2 id="Two-Wiring-your-shell-to-use-the-completer"><a href="#Two-Wiring-your-shell-to-use-the-completer" class="headerlink" title="Two: Wiring your shell to use the completer"></a>Two: Wiring your shell to use the completer</h2><p>Somewhere in your shell config file (<code>.bashrc</code>, <code>.bash_profile</code>, <code>.zshrc</code>…<br>etc), you’ll want to tell it to use your completer whenever it needs to<br>auto-complete for a certain program.</p>
+<h2 id="Two-The-shell-bridge"><a href="#Two-The-shell-bridge" class="headerlink" title="Two: The shell bridge"></a>Two: The shell bridge</h2><p>Somewhere in your shell config file (<code>.bashrc</code>, <code>.bash_profile</code>, <code>.zshrc</code>…<br>etc), you’ll want to tell it to use your completer whenever it needs to<br>auto-complete for a certain program.</p>
 <p>This is a little different per shell, but the main idea is the same. I’ll<br>include a sample for bash and zsh here since these are pretty popular, after<br>Apple decided zsh is the default shell on MacOS.</p>
 <h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">_silly</span></span> () &#123;</span><br><span class="line">  <span class="built_in">local</span> words</span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">type</span> _get_comp_words_by_ref &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    _get_comp_words_by_ref -n = -n @ -n : -w words</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    words=(<span class="string">&quot;<span class="variable">$&#123;COMP_WORDS[@]&#125;</span>&quot;</span>)</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  COMPREPLY=($(COMP_LINE=<span class="string">&quot;<span class="variable">$COMP_LINE</span>&quot;</span> _silly_completer.py -- <span class="string">&quot;<span class="variable">$&#123;words[@]&#125;</span>&quot;</span> 2&gt;/dev/null))</span><br><span class="line">&#125;</span><br><span class="line">complete -o default -F _silly silly</span><br></pre></td></tr></table></figure>
 
@@ -169,6 +171,8 @@
 <p>The reason we had to press a space before we got auto-completion is because<br><code>silly</code> doesn’t (probably) actually exist on your system.</p>
 <p><em>Happy completions!</em></p>
 <h2 id="Caveats"><a href="#Caveats" class="headerlink" title="Caveats"></a>Caveats</h2><p>Note that the shell will run your completer executable every time it’s asked<br>to auto-complete your command. Some shell setups like zsh plugins can try to<br>auto-complete after every character you type (after the initial program name,<br><code>silly</code>), so make sure the script is quick enough to run that you won’t feel<br>it running as you’re typing your command.</p>
+<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h2><p>I saw this really cool Node.js package, tabtab, that gave me the idea,<br>you should check it out: <a target="_blank" rel="noopener" href="https://github.com/mklabs/tabtab">https://github.com/mklabs/tabtab</a>.</p>
+<p>Part two here: <a href="/2021/04/11/shell-completion-in-any-language-part-2/" title="shell completion in any language - part 2">shell completion in any language - part 2</a></p>
 
   </div>
 </article>
@@ -198,22 +202,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-The-completer"><span class="toc-number">1.</span> <span class="toc-text">One: The completer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Wiring-your-shell-to-use-the-completer"><span class="toc-number">2.</span> <span class="toc-text">Two: Wiring your shell to use the completer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#One-The-completer"><span class="toc-number">1.</span> <span class="toc-text">One: The completer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-The-shell-bridge"><span class="toc-number">2.</span> <span class="toc-text">Two: The shell bridge</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bash"><span class="toc-number">2.1.</span> <span class="toc-text">Bash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zsh"><span class="toc-number">2.2.</span> <span class="toc-text">Zsh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caveats"><span class="toc-number">3.</span> <span class="toc-text">Caveats</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Credits"><span class="toc-number">4.</span> <span class="toc-text">Credits</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&text=shell auto completion in any language"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&is_video=false&description=shell auto completion in any language"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=shell auto completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&title=shell auto completion in any language"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&name=shell auto completion in any language&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/11/shell-auto-completion-in-any-language/&t=shell auto completion in any language"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&text=shell completion in any language"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&is_video=false&description=shell completion in any language"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=shell completion in any language&body=Check out this article: https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&title=shell completion in any language"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&name=shell completion in any language&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yebrahim.github.io/2021/04/11/shell-completion-in-any-language/&t=shell completion in any language"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
